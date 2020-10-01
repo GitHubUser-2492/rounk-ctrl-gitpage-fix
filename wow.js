@@ -11,7 +11,7 @@ const showFolderContentAnimation = anime.timeline({
 showFolderContentAnimation
   .add({
     targets: "#js_folder-content",
-    height: [0, 240], // can be changed to increase the height of the container to add more stuff! 
+    height: [0, 240], // can be changed to increase the height of the container to add more stuff!
     duration: 350
   })
   .add(
