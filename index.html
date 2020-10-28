@@ -187,20 +187,40 @@ body{
   /* makes sure it stays on top */
 }
 
-#status {
-  width: 300px;
-  height: 200px;
+.lds-ring {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.lds-ring div {
+  box-sizing: border-box;
+  display: block;
   position: absolute;
-  left: 50%;
-  /* centers the loading animation horizontally one the screen */
-  top: 50%;
-  /* centers the loading animation vertically one the screen */
-  background-image: url(https://file.mockplus.com/image/2018/04/d938fa8c-09d3-4093-8145-7bb890cf8a76.gif);
-  /* path to your loading animation */
-  background-repeat: no-repeat;
-  background-position: center;
-  margin: -100px 0 0 -100px;
-  /* is width and height divided by two */
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border: 8px solid #fff;
+  border-radius: 50%;
+  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: #fff transparent transparent transparent;
+}
+.lds-ring div:nth-child(1) {
+  animation-delay: -0.45s;
+}
+.lds-ring div:nth-child(2) {
+  animation-delay: -0.3s;
+}
+.lds-ring div:nth-child(3) {
+  animation-delay: -0.15s;
+}
+@keyframes lds-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
  .folder {
 	 background: #fff;
@@ -412,7 +432,7 @@ progress{
 	vertical-align: sub;
 }
 .scroll-width-thin {
-  scrollbar-width: thin; 
+  scrollbar-width: thin;
 }
 ::-webkit-scrollbar{
   width: 0;
@@ -474,7 +494,7 @@ progress{
 <![endif]-->
    <!-- Preloader -->
 <div id="preloader">
-  <div id="status">&nbsp;</div>
+  <div id="status"><div></div><div></div><div></div><div>
 </div>
 <div id="progressbar"></div>
 <div id="scrollPath"></div>
