@@ -200,10 +200,10 @@ body{
   width: 64px;
   height: 64px;
   margin: 8px;
-  border: 8px solid #fff;
+  border: 8px solid #cef;
   border-radius: 50%;
   animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-  border-color: #fff transparent transparent transparent;
+  border-color: #cef transparent transparent transparent;
 }
 #lds-ring div:nth-child(1) {
   animation-delay: -0.45s;
@@ -494,7 +494,7 @@ progress{
 <![endif]-->
    <!-- Preloader -->
 <div id="preloader">
-  <div id="status"><div></div><div></div><div></div><div>
+<div id="lds-ring"><div></div><div></div><div></div><div>
 </div>
 <div id="progressbar"></div>
 <div id="scrollPath"></div>
@@ -715,7 +715,7 @@ viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
 <script>
 /*eslint-env jquery */
 $(window).on('load', function() { // makes sure the whole site is loaded
-  $('#status').fadeOut(); // will first fade out the loading animation
+  $('#lds-ring').fadeOut(); // will first fade out the loading animation
   $('#preloader').delay(350).fadeOut('slow'); // will fade out the white DIV that covers the website.
   $('body').delay(350).css({'overflow':'visible'});
 })
