@@ -9,7 +9,7 @@
   </div>
   <a href="?page=2" onclick="createView( { contentId: (currentPage<boxcontent.length-1? currentPage+1 : 1), title: 'Welcome to Page '+(currentPage<boxcontent.length-1? currentPage+1 : 1) }, true );return false;">Next Page</a>
   <script type="text/javascript">
-    function createView(stateObject, pushHistory) { 
+    function createView(stateObject, pushHistory) {
 	document.getElementById('contentBox').innerHTML = '<h1>'+stateObject.title+'</h1>'+boxcontent[stateObject.contentId];
 	currentPage = stateObject.contentId;
 
@@ -19,6 +19,11 @@
 	// - Third argument is the URL - this will appear in the browser address bar
 	if (pushHistory) history.pushState(stateObject, stateObject.title, '?page='+stateObject.contentId);
 }
+window.onpopstate = function(event) {
+	// We use false as the second argument below
+	// - state will already be on the stack when going Back/Forwards
+	createView(event.state, false);
+};
   var boxcontent = new Array();
   boxcontent[1] = 'Content for Page 1 is content.';
   boxcontent[2] = 'This exciting stuff is content for Page 2.';
