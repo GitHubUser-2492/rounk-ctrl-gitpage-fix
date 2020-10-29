@@ -3,43 +3,23 @@
 <body>
   <script src="/Scripts/jquery.history.js" type="text/javascript"></script>
 
-<div id="demo"> 
-<h2>CLick button to change content!</h2>
-<button type="button" onclick="loadDoc('ajax_info.txt', myFunction)">Change Content
-</button>
-</div>
+  <div id="contentBox">
+  	<h1>Welcome to Page 1</h1>
+  	Content for Page 1.
+  </div>
+  <a href="?page=2" onclick="createView( { contentId: (currentPage<boxcontent.length-1? currentPage+1 : 1), title: 'Welcome to Page '+(currentPage<boxcontent.length-1? currentPage+1 : 1) }, true );return false;">Next Page</a>
+  <script type="text/javascript">
+  var boxcontent = new Array();
+  boxcontent[1] = 'Content for Page 1 is content.';
+  boxcontent[2] = 'This exciting stuff is content for Page 2.';
+  boxcontent[3] = 'Page 3 is probably the best page, in content terms.';
+  boxcontent[4] = 'Wow, you\'re still reading this crap?';
 
-<script>
-  $(function () {
-    $.history.init(function (hash) {
-        if (hash == "") {
-            // initialize your app
-            // runs when page first loads.
-        } else {
-            // restore the state from hash
-            // (i.e. in "http://www.CodeTunnel.com/#/Blog/Page5"
-            // the hash var would contain "/Blog/Page5".)
-            function loadDoc(url, cFunction) {
-              var xhttp;
-              xhttp=new XMLHttpRequest();
-              xhttp.onreadystatechange = function() {
-                if (this.readyState == 4 && this.status == 200) {
-                  cFunction(this);
-                }
-              };
-              xhttp.open("GET", url, true);
-              xhttp.send();
-            }
-            function myFunction(xhttp) {
-              document.getElementById("demo").innerHTML =
-              xhttp.responseText;
-            }
-        }
-    },
-    { unescape: ",/" });
-}
+  // We use a global variable to hold the current page number
+  var currentPage = 1;
 
-
-</script>
+  // We also have to push the initial state onto the history stack
+  history.pushState( { contentId: 1, title: 'Welcome to Page 1' }, 'Welcome to Page 1', '?page=1');
+  </script>
 </body>
 </html>
