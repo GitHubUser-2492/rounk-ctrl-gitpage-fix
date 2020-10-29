@@ -7,23 +7,38 @@
 <button type="button" onclick="loadDoc('ajax_info.txt', myFunction)">Change Content
 </button>
 </div>
- 
+
 <script>
-function loadDoc(url, cFunction) {
-  var xhttp;
-  xhttp=new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-      cFunction(this);
-    }
-  };
-  xhttp.open("GET", url, true);
-  xhttp.send();
+  $(function () {
+    $.history.init(function (hash) {
+        if (hash == "") {
+            // initialize your app
+            // runs when page first loads.
+        } else {
+            // restore the state from hash
+            // (i.e. in "http://www.CodeTunnel.com/#/Blog/Page5"
+            // the hash var would contain "/Blog/Page5".)
+            function loadDoc(url, cFunction) {
+              var xhttp;
+              xhttp=new XMLHttpRequest();
+              xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                  cFunction(this);
+                }
+              };
+              xhttp.open("GET", url, true);
+              xhttp.send();
+            }
+            function myFunction(xhttp) {
+              document.getElementById("demo").innerHTML =
+              xhttp.responseText;
+            }
+        }
+    },
+    { unescape: ",/" });
 }
-function myFunction(xhttp) {
-  document.getElementById("demo").innerHTML =
-  xhttp.responseText;
-}
+
+
 </script>
 </body>
 </html>
