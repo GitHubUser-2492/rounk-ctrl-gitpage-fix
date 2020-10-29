@@ -19,7 +19,7 @@
 	// - Third argument is the URL - this will appear in the browser address bar
 	if (pushHistory) history.pushState(stateObject, stateObject.title, '?page='+stateObject.contentId);
 }
-window.onpopstate = function(event) {
+window.onpopstate = function(event) { 
 	// We use false as the second argument below
 	// - state will already be on the stack when going Back/Forwards
 	createView(event.state, false);
