@@ -23,6 +23,8 @@ html{
 body{
 	font-family: 'Raleway', sans-serif;
 	overflow: hidden;
+  background: white;
+  color: black;
 }
 .header{
   position:relative;
@@ -428,4 +430,35 @@ progress{
 }
 ::-webkit-scrollbar-corner {
   background: transparent;
+}
+
+@media (prefers-color-scheme: light) {
+  body {
+      background: white !important;
+      color: black !important;
+  }
+  .content{
+    background: white;
+  }
+}
+@media (prefers-color-scheme: dark) {
+ body{
+      background: black !important;
+      color: white !important;
+  }
+.content{
+  background: black;
+}
+.ref{
+  filter: invert(1);
+}
+.parallax{
+  filter: invert(1);
+}
+.logo{
+  filter: invert(1);
+}
+.headtext{
+  filter: invert(1);
+}
 }
