@@ -443,6 +443,9 @@ progress{
   #preloader {
     background-color: #fff;	  
   }
+  #lds-ring div{
+    border: 8px solid #484848;
+  }
 }
 @media (prefers-color-scheme: dark) {
  body{
@@ -466,5 +469,8 @@ progress{
 }
 #preloader {
   background-color: #202020;
+}
+#lds-ring div{
+  border: 8px solid #fff;
 }
 }
