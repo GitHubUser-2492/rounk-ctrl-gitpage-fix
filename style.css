@@ -444,7 +444,7 @@ progress{
     background-color: #fff;	  
   }
   #lds-ring div{
-    border: 8px solid #484848;
+    filter: invert(1);
   }
 }
 @media (prefers-color-scheme: dark) {
@@ -471,6 +471,6 @@ progress{
   background-color: #202020;
 }
 #lds-ring div{
-  border: 8px solid #fff;
+  filter: invert(1);
 }
 }
