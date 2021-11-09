@@ -440,6 +440,9 @@ progress{
   .content{
     background: white;
   }
+  #preloader {
+    background-color: #fff;	  
+  }
 }
 @media (prefers-color-scheme: dark) {
  body{
@@ -460,5 +463,8 @@ progress{
 }
 .headtext{
   filter: invert(1);
+}
+#preloader {
+  background-color: #202020;
 }
 }
